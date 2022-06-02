@@ -1,0 +1,20 @@
+{% extends "base.html" %} 
+
+{% block catalog %}
+    {% for locomotive in locomotives %}
+    <a href="/locomotive/{{locomotive.id}}" class="navbar-brand link-light pb-0 pt-0"><!----> - {{locomotive.series }} - {{ locomotive.number}}</a>
+    {% endfor %}
+{% endblock %}
+
+{% block title %}Главная{% endblock %} 
+{% block info %}
+
+<div> 
+    <div class="text-center fs-2">Справочник по поездам</div>
+    <div class="text-center fs-4">Cайт с помощью которого вы узнаете о новостях и о локомотивах которые курсируют по России и странам Европы.</div>
+    <div class="mb-3" ></div>
+    <div class="text-center">
+        <img class="w-75" src="https://sun4-12.userapi.com/s/v1/if2/FCaVT2SXjMx7Hl_Z-SV4sP0m3H1sLkLSYavF2vP9TMldc0Bb250nP9b8C4RtxAcxKjwaDNbJrb_K-l-iLe0IUNlq.jpg?size=1000x667&quality=96&type=album">
+    </div>
+</div>
+{% endblock %}

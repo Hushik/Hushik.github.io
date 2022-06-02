@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+
+{% block catalog %}
+    {% for locomotive in locomotives %}
+    <a href="/locomotive/{{locomotive.id}}" class="navbar-brand link-light pb-0 pt-0"><!----> - {{locomotive.series }} - {{ locomotive.number}}</a>
+    {% endfor %}
+{% endblock %}
+
+{% block title %}Создать новость{% endblock %}
+{% block info %}
+<h1 class="text-center">Создать новость</h1>
+
+<form method="post" class="col-auto col-sm-8 mx-auto">
+    <h3>Заголовок</h3>
+    <textarea name="header" id="header" class="form-control" rows="1" cols="50"></textarea>
+    <br>
+    <h3>Текст</h3>
+    <textarea name="text" id="text" class="form-control" rows="10" cols="50"></textarea>
+    <br>
+    <div class="text-center">
+        <button type="submit" class="btn btn-lg btn-primary">Создать</button>
+    </div>
+</form>
+<br>
+<form>
+    <div class="text-center">
+        <a href="/">
+            <button type="button" class="btn btn-lg btn-secondary">Назад</button>
+        </a>
+    </div>
+    <br>
+</form>
+{% endblock %}

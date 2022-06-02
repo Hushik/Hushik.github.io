@@ -1,0 +1,59 @@
+{% extends "base.html" %}
+
+{% block catalog %}
+    {% for locomotive in locomotives %}
+    <a href="/locomotive/{{locomotive.id}}" class="navbar-brand link-light pb-0 pt-0"><!----> - {{locomotive.series }} - {{ locomotive.number}}</a>
+    {% endfor %}
+{% endblock %}
+
+{% block info %}
+    {% if locomotive %}
+    <div class="text-decoration-none row">
+        <div class="d-flex justify-content-between">
+            <div>
+                <h2>{{locomotive.series }} - {{ locomotive.number}}</h2>
+            <div class="d-flex align-items-center">
+                <p class="pe-2 navbar-brand pb-0 pt-0">Тип тока:</p>
+                <p class="mt-1">{{ locomotive.power_type }}</p>
+            </div>
+            <div class="d-flex align-items-center">
+                <p class="pe-2 navbar-brand pb-0 pt-0">Завод:</p>
+                <p class="mt-1">{{ locomotive.factory }}</p>
+            </div>
+            <div class="d-flex align-items-center">
+                <p class="pe-2 navbar-brand pb-0 pt-0">Количество секций:</p>
+                <p class="mt-1">{{ locomotive.number_of_sections }}</p>
+            </div>
+            <div class="d-flex align-items-center">
+                <p class="pe-2 navbar-brand pb-0 pt-0">Конструкционная скорость:</p>
+                <p class="mt-1">{{ locomotive.construction_speed }} км/ч</p>
+            </div>
+            <div class="d-flex align-items-center">
+                <p class="pe-2 navbar-brand pb-0 pt-0">Тип торможения:</p>
+                <p class="mt-1">{{ locomotive.type_of_braking }}</p>
+            </div>
+            </div>
+            <div>
+                <div class="d-flex align-items-top">
+                    <img src="/static/img/{{locomotive.id}}/{{locomotive.name}}" class="img-fluid" width="512">
+                </div>
+            </div>
+        </div>
+        <div class="mb-4"></div>
+        <div >
+            <div class="d-flex align-items-top">
+                <p class="pe-2 navbar-brand pb-0 pt-0">Описание:</p>
+                <p>{{ locomotive.opisanie }}</p>
+            </div>
+            <div class="d-flex align-items-top col-auto">
+                <p class="pe-2 navbar-brand pb-0 pt-0">Порядок запуска: </p>
+                <p class="mt-1">1) Включение батарей <br>2) Включение вспомогательного копрессора <br>3) Поднятие токоприёмников <br>4) Включение тягового выключателя <br>5) Включение копрессора </p>
+            </div>
+            {% if user.is_authenticated %}
+            <div class="mb-5"></div>
+            <a href="/locomotive/{{locomotive.id}}/delete" class="navbar-brand link-light pb-1 pt-1 btn btn-secondary ">Удалить запись</a>
+            {% endif %}
+        </div>
+    </div>
+    {% endif %}
+{% endblock %}

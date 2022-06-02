@@ -1,0 +1,96 @@
+{% extends "base.html" %}
+
+{% block catalog %}
+    {% for locomotive in locomotives %}
+    <a href="/locomotive/{{locomotive.id}}" class="navbar-brand link-light pb-0 pt-0"><!----> - {{locomotive.series }} - {{ locomotive.number}}</a>
+    {% endfor %}
+{% endblock %}
+
+{% block title %}Добавить локомотив{% endblock %}
+{% block info %}
+<form method="post" enctype="multipart/form-data">
+    <h3>Добавить подвижной состав</h3>
+    <div class=" row">
+        <div class="col-sm">
+            <label for="series" class="form-label">Серия</label>
+            <input
+                type="text"
+                id="series"
+                name="series"
+                class="form-control w-100"
+            />
+            <br>
+            <label for="number" class="form-label">Номер</label>
+            <input
+                type="text"
+                id="number"
+                name="number"
+                class="form-control w-100"
+            />
+            <br>
+            <label for="power_type" class="form-label">Тип Тока</label>
+            <input
+                type="text"
+                id="power_type"
+                name="power_type"
+                class="form-control w-100"
+            />
+            <br>
+        </div>
+        <div class="col-sm">
+            <label for="factory" class="form-label">Завод</label>
+            <input
+                type="text"
+                id="factory"
+                name="factory"
+                class="form-control w-100"
+            />
+            <br>
+            <label for="number_of_sections" class="form-label">Количество секций</label>
+            <input
+                type="text"
+                id="number_of_sections"
+                name="number_of_sections"
+                class="form-control w-100"
+            />
+            <br>
+            <label for="construction_speed" class="form-label">Конструкционная скорость</label>
+            <input
+                type="text"
+                id="construction_speed"
+                name="construction_speed"
+                class="form-control w-100"
+            />
+            <br>
+        </div>
+        <div class="col-sm ">
+            <label for="type_of_braking" class="form-label ">Тип торможения</label>
+            <input
+                type="text"
+                id="type_of_braking"
+                name="type_of_braking"
+                class="form-control w-100"
+            />
+            <br>
+            <label for="opisanie" class="form-label">Описание</label>
+            <input
+                type="text"
+                id="opisanie"
+                name="opisanie"
+                class="form-control w-100"
+            />
+            <br>
+            <label for="img" class="form-label">Фото</label>
+            <input
+                type="file"
+                id="img"
+                name="pic"
+                class="form-control w-100"
+            />
+            <br>
+        </div>
+    </div>
+    <div class="mb-4" ></div>
+    <button class="btn btn-secondary pe-4 ps-4" type="submit">Добавить</button>
+</form>
+{% endblock %}
